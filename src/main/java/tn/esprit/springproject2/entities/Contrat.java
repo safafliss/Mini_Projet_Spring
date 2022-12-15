@@ -18,11 +18,12 @@ public class Contrat implements Serializable {
     private Long idContrat;
     @Temporal(TemporalType.DATE)
     private Date dateDebutContrat;
+    @Temporal(TemporalType.DATE)
     private Date dateFinContrat;
     @Enumerated(EnumType.STRING)
     private Specialite specialite;
     private boolean archive;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    private String description;
+    @ManyToOne
     Etudiant etudiant;
 }

@@ -2,7 +2,11 @@ package tn.esprit.springproject2.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.springproject2.entities.Option;
 import tn.esprit.springproject2.entities.Universite;
 import tn.esprit.springproject2.services.DepartementService;
 import tn.esprit.springproject2.services.UniversiteService;
@@ -47,4 +51,24 @@ public class UniversiteController {
     public float getChiffreAffaireEntreDeuxDate(@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate, @PathVariable("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate){
         return universiteService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
     }
+
+
+    /*@GetMapping("/findUnivByRegion/{region}")
+    public  List<Universite>findUniversiteByRegion(@PathVariable("region") String region){
+        return universiteService.findUniversiteByRegion(region);
+    }
+    @GetMapping("/getUniversiteByDepartementEtudiantOpt/{option}")
+    public  List<Universite>getUniversiteByDepartementEtudiantOpt(@PathVariable("option") Option option){
+        return universiteService.getUniversiteByDepartementEtudiantOpt(option);
+    }
+    @GetMapping("/getUniv")
+    public ResponseEntity<List<Universite>> getAllUnivs(
+            @RequestParam(defaultValue = "0") Integer pageNo,
+            @RequestParam(defaultValue = "10") Integer pageSize,
+            @RequestParam(defaultValue = "nomUniv") String sortBy)
+    {
+        List<Universite> list = universiteService.getAllUniv(pageNo, pageSize, sortBy);
+
+        return new ResponseEntity<List<Universite>>(list, new HttpHeaders(), HttpStatus.OK);
+    }*/
 }

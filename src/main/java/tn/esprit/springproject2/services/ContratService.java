@@ -19,4 +19,7 @@ public interface ContratService {
     //calculer le nombre de contrats encore valides entre deux dates.
     Integer nbContratsValides(Date startDate, Date endDate);
 
+    Integer getNbrjourById(Long id);
+
+    public Contrat affectContratToEtudiantById(Contrat ce, long id);
 }

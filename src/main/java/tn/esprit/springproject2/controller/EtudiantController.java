@@ -9,6 +9,7 @@ import tn.esprit.springproject2.services.EtudiantService;
 import java.util.List;
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class EtudiantController {
     EtudiantService etudiantService;
 
@@ -74,4 +75,15 @@ public class EtudiantController {
     public List<Etudiant> getEtudiantsByDepartment (@PathVariable("idDepartment") long idDepartment){
         return etudiantService.getEtudiantsByDepartment(idDepartment);
     }
+    @GetMapping("/findListEtudiantsByEquipeAndEnseignant/{idEnseignant}/{nom}")
+    List<Integer> findListEtudiantsByEquipeAndEnseignant(@PathVariable("idEnseignant") long idEnseignant,@PathVariable("nom") String nom){
+        return etudiantService.findListEtudiantsByEquipeAndEnseignant(idEnseignant, nom);
+    }
+
+    @GetMapping("/findListEtudiantsByEquipeAndEnseignant2/{idEnseignant}/{nom}")
+    List<String> findListEtudiantsByEquipeAndEnseignant2(@PathVariable("idEnseignant") long idEnseignant,@PathVariable("nom") String nom){
+        return etudiantService.findListEtudiantsByEquipeAndEnseignant2(idEnseignant,nom);
+    }
+
+
 }

@@ -14,4 +14,5 @@ public interface DepartementService {
     List<Departement> retrieveDepartementByOptionEtudiant(Option op);
     //récupérer le ou les départements d’une université donnée.
     List<Departement> retrieveDepartmentByUniversite(long idUniversite);
+
 }

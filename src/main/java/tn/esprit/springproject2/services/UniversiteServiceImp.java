@@ -1,11 +1,12 @@
 package tn.esprit.springproject2.services;
 
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import tn.esprit.springproject2.entities.Contrat;
-import tn.esprit.springproject2.entities.Departement;
-import tn.esprit.springproject2.entities.Specialite;
-import tn.esprit.springproject2.entities.Universite;
+import tn.esprit.springproject2.entities.*;
 import tn.esprit.springproject2.repository.ContratRepository;
 import tn.esprit.springproject2.repository.DepartementRepository;
 import tn.esprit.springproject2.repository.UniversiteRepository;
@@ -13,6 +14,7 @@ import tn.esprit.springproject2.repository.UniversiteRepository;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @AllArgsConstructor
@@ -118,4 +120,32 @@ public class UniversiteServiceImp implements UniversiteService{
         return CA;
     }
 
+
+
+  /*  @Override
+    public List<Universite> getAllUniv(Integer pageNo, Integer pageSize, String sortBy) {
+
+        {
+            Pageable paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+
+            Page<Universite> pagedResult = universiteRepository.findAll(paging);
+
+            if (pagedResult.hasContent()) {
+                return pagedResult.getContent();
+            } else {
+                return new ArrayList<Universite>();
+            }
+        }
+    }
+
+
+    @Override
+    public List<Universite> findUniversiteByRegion(String region) {
+        return universiteRepository.findUniversiteByRegion(region);
+    }
+
+    @Override
+    public List<Universite> getUniversiteByDepartementEtudiantOpt(Option option) {
+        return universiteRepository.getUniversiteByDepartementEtudiantOpt(option);
+    }*/
 }

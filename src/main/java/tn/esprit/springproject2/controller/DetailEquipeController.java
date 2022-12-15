@@ -40,4 +40,25 @@ public class DetailEquipeController {
     public List<DetailEquipe> findDetailEquipeByThematiqueLike(@PathVariable("th") String th) {
         return detailEquipeService.findDetailEquipeByThematiqueLike(th);
     }
+    @GetMapping("/findByIdEquipe/{idEquipe}")
+    public DetailEquipe findByIdEquipe(@PathVariable("idEquipe") Long idEquipe){
+        return detailEquipeService.findDetailEquipeByEquipe(idEquipe);
+    }
+
+    @GetMapping("/getAllAscDeq")
+    public List<DetailEquipe> getAllAsc(){
+        return detailEquipeService.getAllAsc();
+    }
+
+    @GetMapping("/getAllDescDeq")
+    public List<DetailEquipe> getAllDesc(){
+        return detailEquipeService.getAllDesc()   ;
+    }
+
+    @PostMapping("/addAndAssignDetailEquipeToEquipe/{idEquipe}")
+    @ResponseBody
+    public DetailEquipe addAndAssignDetailEquipeToEquipe(@RequestBody DetailEquipe e, @PathVariable("idEquipe") Long idEquipe){
+        DetailEquipe detailEquipe =this.detailEquipeService.addAndAssignDetailEquipeToEquipe(e,idEquipe);
+        return detailEquipe;
+    }
 }

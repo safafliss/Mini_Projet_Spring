@@ -22,5 +22,10 @@ public interface EtudiantService {
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, long idContrat, long idEquipe);
     //récupérer les étudiants d’un département donné.
     List<Etudiant> getEtudiantsByDepartment (long idDepartment);
+    List<Integer> findListEtudiantsByEquipeAndEnseignant(long idEnseignant, String nom);
+    List<String> findListEtudiantsByEquipeAndEnseignant2(long idEnseignant, String nom);
+
+
+
 
 }

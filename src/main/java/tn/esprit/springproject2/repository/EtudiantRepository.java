@@ -24,4 +24,16 @@ public interface EtudiantRepository extends JpaRepository <Etudiant, Long> {
 
     @Query("select e from Etudiant e where e.nomE = ?1 and e.prenomE = ?2")
     Etudiant findEtudiantByNomEAndPrenomE(String nomE, String prenomE);
+
+    @Query("SELECT e.idEtudiant FROM Etudiant e join e.equipes eq join eq.enseignant en where  en.idEnseignant = :idEnseignant and eq.nomEquipe = :nom")
+    List<Integer> findListEtudiantsByEquipeAndEnseignant(long idEnseignant, String nom);
+
+    @Query("SELECT concat(e.nomE, ' ', e.prenomE) FROM Etudiant e join e.equipes eq join eq.enseignant en where  en.idEnseignant = :idEnseignant and eq.nomEquipe = :nom")
+    List<String> findListEtudiantsByEquipeAndEnseignant2(long idEnseignant, String nom);
+
+
+
+
+
+    List<Etudiant> findByEquipes_IdEquipe(Long idEquipe);
 }

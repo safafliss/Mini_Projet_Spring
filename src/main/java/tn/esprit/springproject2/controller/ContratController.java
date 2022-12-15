@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class ContratController {
 
     ContratService contratService;
@@ -58,5 +59,14 @@ public class ContratController {
     public Integer nbContratsValides(@PathVariable("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,@PathVariable("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate){
         return contratService.nbContratsValides(startDate,endDate);
     }
+    @GetMapping("/getNbrjourById/{id}")
+    public Integer getNbrjourById(@PathVariable("id") Long id){
+        return contratService.getNbrjourById(id);
+    }
 
+
+    @PostMapping("/affectContratToEtudiantById/{id}")
+    public Contrat affectContratToEtudiantById(@RequestBody Contrat ce,@PathVariable("id") long id){
+        return contratService.affectContratToEtudiantById(ce,id);
+    }
 }

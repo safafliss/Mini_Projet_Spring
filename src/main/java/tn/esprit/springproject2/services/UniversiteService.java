@@ -1,4 +1,6 @@
 package tn.esprit.springproject2.services;
+import org.springframework.data.repository.query.Param;
+import tn.esprit.springproject2.entities.Option;
 import tn.esprit.springproject2.entities.Universite;
 
 import java.util.Date;
@@ -13,4 +15,13 @@ public interface UniversiteService {
     //affecter une université à un département.
     void assignUniversiteToDepartment(long idUniversite, long idDepartment);
     public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
+
+
+
+
+
+    /*List<Universite> getAllUniv(Integer pageNo, Integer pageSize, String sortBy);
+    List <Universite> findUniversiteByRegion (String region);
+    List<Universite>getUniversiteByDepartementEtudiantOpt(@Param("option") Option option);*/
+
 }

@@ -11,4 +11,12 @@ public interface DetailEquipeService {
     DetailEquipe getDetailEquipeById (Long idDetailEquipe);
     void deleteDetailEquipe( Long idDetailEquipe);
     List<DetailEquipe> findDetailEquipeByThematiqueLike(String th);
+    public List<DetailEquipe> getAllDEquipes(Integer pageNo, Integer pageSize, String sortBy);
+
+    DetailEquipe findDetailEquipeByEquipe(Long idEquipe);
+
+    public List<DetailEquipe>getAllAsc();
+    public List<DetailEquipe>getAllDesc();
+    DetailEquipe addAndAssignDetailEquipeToEquipe(DetailEquipe detailEquipe, Long idEquipe);
+
 }

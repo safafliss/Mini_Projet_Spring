@@ -91,5 +91,15 @@ public class EtudiantServiceImp implements EtudiantService{
         return l;
     }
 
+    @Override
+    public List<Integer> findListEtudiantsByEquipeAndEnseignant(long idEnseignant, String nom) {
+        return etudiantRepository.findListEtudiantsByEquipeAndEnseignant(idEnseignant, nom);
+    }
+
+    @Override
+    public List<String> findListEtudiantsByEquipeAndEnseignant2(long idEnseignant, String nom) {
+        return etudiantRepository.findListEtudiantsByEquipeAndEnseignant2(idEnseignant,nom);
+    }
+
 
 }
